@@ -1,0 +1,39 @@
+@font-face{
+    font-family: 'Lobster';   
+    src: url('../font/Lobster-Regular.ttf') format('truetype');
+}
+.info_last-diagnosis, .expert_title_home{
+    display: inline-flex;
+    margin-right: 184px;
+}
+.title_home, .title_fio-doctor{
+    font-family: 'Lobster';
+}
+.date{
+    margin-right: 124px;
+}
+.info_time{
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #76AAB0;
+    padding-top: 15px;
+}
+.send{
+    margin-bottom: 29px;
+}
+.main-input{
+    height: 37px;
+}
+.diagnos_true{
+    background: rgba(118, 170, 176, 0.28);
+    border: 1px solid #76AAB0;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1px;
+}
+.date_text{
+    padding-top: 16px;
+    font-weight: bold;
+    margin-bottom: 29px;
+}
