@@ -103,7 +103,7 @@ hr{
     margin-bottom: 69px;
     justify-content: center;
 }
-.expert_title{
+.expert_title, .expert_title_home{
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -132,11 +132,12 @@ hr{
     flex-direction: column;
     align-items: space-around;
 }
-.info_fio{
+.info_fio, .info_patient, .stat_text{
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
     margin-bottom: 24px;
+
 }
 .info_profession, .info_experience{
     font-size: 18px;
