@@ -1,0 +1,63 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+ 
+#viewport {
+    margin-top: 58px;
+    width: 1160px;
+    height:332px;
+    overflow: hidden;
+}
+ 
+.slider {
+    position: relative;
+    transition: 500ms;
+    width: 1160px;
+    height: 332px; 
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+}
+ 
+.slide {
+    width: 1160px;
+    height: 332px;
+}
+ 
+.slide img {
+    width: 1160px;
+    height: 332px;
+    object-fit: cover;
+    object-position: 0;
+}
+ 
+#viewSlider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    flex-direction: row;
+}
+.viewSlide {
+    display: flex;
+    width: 11px;
+    height: 11px;
+    background: #76AAB0;
+    border-radius: 50%;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 18px;
+    margin-bottom: 69px;
+}
+.next, .prev{
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 13px;
+    margin-bottom: 69px;
+    cursor: pointer;
+}

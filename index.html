@@ -7,11 +7,12 @@
     <link rel="shortcut icon" href="media/Caduceus.png" type="image/x-icon">
     <link rel="stylesheet" href="css/authorization.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
     <title>Жить здорово!</title>
 </head>
 <body>
     <div class="w-content">
-
+        <div class="w-fixed">
         <header>
             <a href="" class="w-hyper">
                 <div class="header_logo">
@@ -36,16 +37,39 @@
             </a>
         </header>
         <hr>
-    
-    <div class="w-slider">
-        <img src="media/hbqzjy55 1.png" alt="" class="slider_img">
-        <div class="slider_leaf">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+        </div>
+        
+
+
+    <div id="viewport">
+        <div class="slider" style="left: 0">
+            <div class="slide"><img src="media/hbqzjy55 1.png" alt=""></div>
+            <div class="slide"><img src="media/banner2.jpg" alt=""></div>
+            <div class="slide"><img src="media/banner3.jpg" alt=""></div>
+            <div class="slide"><img src="media/hbqzjy55 1.png" alt=""></div>
+            <div class="slide"><img src="media/banner4.jpg" alt=""></div>
         </div>
     </div>
+ 
+    <div id="viewSlider">
+        <button class="prev" id="prev"><img src="media/Upward Arrow1.png" alt=""></button>
+        <div class="viewSlide"></div>
+        <div class="viewSlide"></div>
+        <div class="viewSlide"></div>
+        <div class="viewSlide"></div>
+        <div class="viewSlide"></div>
+        <button class="next" id="next"><img src="media/Upward Arrow.png" alt=""></button>
+    </div>
+ 
+
+    
+
+
+
+
+
+
+
 
     <section class="expert">
         <p class="expert_title">Наши специалисты:</p>
@@ -163,6 +187,6 @@
    
     </footer>
 </div>
-    
+    <script src="js/index.js"></script>
 </body>
 </html>
