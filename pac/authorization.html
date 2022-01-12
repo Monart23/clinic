@@ -20,18 +20,48 @@
         </a>
         <div class="header_slogan">
             <p class="name-company">Жить здорово!</p>
-            <p class="catchword">Жить здорово, когда ты здоровый</p>
+            <p class="catchword">Жить здорово, когда ты здоров</p>
         </div>
     </header>
     </div>
     <div class="w-panel-authotization">
-        <div class="panel-authorization">
-            <p class="authorization_title">Добро пожаловать!</p>
-            <p class="authorization_sub-title">Авторизация для специалистов, возврат на главную страницу по нажатию на логотип или <a href="../index.html">здесь</a> </p>
-            <input type="text" name="" id="" class="login" value="Введите логин" onfocus="this.value=''">
-            <input type="password" name="" id="" class="password" value="Введите пароль" onfocus="this.value=''">
-            <button class="login-button record">Выполнить вход</button>
+
+         <div class="panel-authorization">
+             <p class="authorization_title">Добро пожаловать!</p>
+             <p class="authorization_sub-title">Авторизация для специалистов, возврат на главную страницу по нажатию на логотип или <a href="../index.html">здесь</a> </p>
+             <input type="text" name="login" id="login" class="login" placeholder="Введите логин">
+             <input type="password" name="password" id="password" class="password" placeholder="Введите пароль">
+             <button class="record send" id="btn">Выполнить вход</button>
+
         </div>
     </div>
+<script type="text/javascript">
+        async function query() {
+            const data = {
+                login: login.value,
+                password: password.value,
+            }
+
+           try {
+                const response = await fetch('http://localhost/clinic/php/auth.php', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    mode: 'cors'
+                });
+                if (response.status === 201){
+                    alert("ok");
+                }
+                else alert( "no");
+           } catch (error) {
+                console.error(error);
+           }
+        }
+
+        btn.addEventListener("click", query);
+    </script>
+
 </body>
 </html>
