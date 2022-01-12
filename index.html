@@ -30,7 +30,7 @@
             </div>
             <div class="header_slogan">
                 <p class="name-company">Жить здорово!</p>
-                <p class="catchword">Жить здорово, когда ты здоровый</p>
+                <p class="catchword">Жить здорово, когда ты здоров</p>
             </div>
             <a href="pac/authorization.html" class="w-hyper">
                 <img src="media/Enter.png" alt="" class="header_enter">
@@ -61,16 +61,6 @@
         <button class="next" id="next"><img src="media/Upward Arrow.png" alt=""></button>
     </div>
  
-
-    
-
-
-
-
-
-
-
-
     <section class="expert">
         <p class="expert_title">Наши специалисты:</p>
         <div class="expert_card">
@@ -140,22 +130,25 @@
         </div>
         <hr >
     </section>
+
     <p class="prewiew-input">
         Если вы не знаете какого специалиста выбрать, можете оставить обращение, с вами свяжется наш консультант и подберет подходящего врача.
     </p>
+
     <div class="registration">
-        <div class="registration_title">Запись на прием:</div>
-        <div class="w-registration">
-            <input type="text" name="" id="" class="login main-input" value="ФИО" onfocus="this.value=''">
-            <input type="text" name="" id="" class="login main-input" value="E-mail" onfocus="this.value=''">
-            <input type="text" name="" id="" class="login main-input" value="Телефон" onfocus="this.value=''">
-        </div>
-        <input type="textarea" name="" id="" class="login main-input problem" value="Опишите причину обращения" onfocus="this.value=''">
-        <button class="record send">Отправить</button>
+
+       		<div class="registration_title">Запись на прием:</div>
+        		<div class="w-registration">
+            		<input type="text" name="FIO" id="FIO" class="login main-input" placeholder="ФИО">
+            		<input type="email" name="email" id="email" class="login main-input" placeholder="E-mail">
+            		<input type="text" name="number" id="number" class="login main-input" placeholder="Телефон">
+   					
+        		</div>
+        			<input type="textarea" name="complaint" id="complaint" class="login main-input problem" placeholder ="Опишите причину обращения">
+       		 <button class="record send" id="btn">Отправить</button>
+
     </div>
     
-    
-
     <footer>
         
             <div class="license">
@@ -187,6 +180,38 @@
    
     </footer>
 </div>
+	<script type="text/javascript">
+		async function query() {
+			if (FIO.value.length < 5 || email.value.length < 5 || number.value.length < 5 || complaint.value.length < 5) {
+				alert('Некорректный ввод полей');
+				return;
+			}
+
+		    const data = {
+		    	fioData: FIO.value,
+		    	emailData: email.value,
+		    	numberData: number.value,
+		    	complaintData: complaint.value
+		    }
+
+		   try {
+		   		const response = await fetch('http://localhost/clinic/php/index.php', {
+		   			method: 'POST',
+		   			body: JSON.stringify(data),
+		   			headers: {
+		   				'Content-type': 'application/json'
+		   			},
+		   			mode: 'cors'
+		   		});
+		   		if (response.status === 201) alert('Пациент записан на прием');
+		   		else alert('Пациент не записан на прием');
+		   } catch (error) {
+		   		console.error(error);
+		   }
+		}
+
+		btn.addEventListener("click", query);
+	</script>
     <script src="js/index.js"></script>
 </body>
 </html>
