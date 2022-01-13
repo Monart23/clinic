@@ -41,7 +41,6 @@
                 login: login.value,
                 password: password.value,
             }
-
            try {
                 const response = await fetch('http://localhost/clinic/php/auth.php', {
                     method: 'POST',
@@ -51,10 +50,13 @@
                     },
                     mode: 'cors'
                 });
-                if (response.status === 201){
-                    alert("ok");
+                if (response.status === 202){
+                       var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                        if(cookieValue === ""){}else{window.location.href = 'http://localhost/clinic/pac/doctor_home.html';}
                 }
-                else alert( "no");
+                else if(response.status === 501){
+                    alert("Нет такого пользователя");
+                }
            } catch (error) {
                 console.error(error);
            }
