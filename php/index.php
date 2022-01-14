@@ -3,6 +3,7 @@
     header('Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
     header('Content-type: application/json');
+    include 'config.php';
 
     $data = json_decode(file_get_contents('php://input'), true);
     
@@ -13,7 +14,7 @@
         $number = filter_var(trim($data['numberData']), FILTER_SANITIZE_STRING);
 
         try {
-            $mysql = new mysqli('localhost','root','','bd_complaints');
+            $mysql = new mysqli($host, $admin, $adminpass, 'bd_complaints');
             $mysql->query("INSERT INTO `patient` (`FIO`, `email`, `number`, `complaint`) VALUES('$FIO', '$email', '$number', '$complaint')");
             $mysql->close();
             
