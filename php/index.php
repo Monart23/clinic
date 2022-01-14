@@ -8,10 +8,10 @@
     $data = json_decode(file_get_contents('php://input'), true);
     
     if ($data) {
-        $complaint = filter_var(trim($data['complaintData']), FILTER_SANITIZE_STRING);
-        $FIO = filter_var(trim($data['fioData']), FILTER_SANITIZE_STRING);
-        $email = filter_var(trim($data['emailData']), FILTER_VALIDATE_EMAIL);
-        $number = filter_var(trim($data['numberData']), FILTER_SANITIZE_STRING);
+        $complaint = addslashes(($data['complaintData']));
+        $FIO = addslashes(($data['fioData']));
+        $email = addslashes(trim($data['emailData']));
+        $number = addslashes(trim($data['numberData']));
 
         try {
             $mysql = new mysqli($host, $admin, $adminpass, 'bd_complaints');
