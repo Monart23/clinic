@@ -36,7 +36,7 @@
     <section class="expert">
         <div class="expert_title_home">
             <p class="title_home">Добро пожаловать, &nbsp;</p>
-            <p class="title_fio-doctor">Лев Михайлович!</p>
+            <p class="title_fio-doctor"></p>
         </div>
         <div class="expert_card">
             <hr>
@@ -151,6 +151,19 @@
         <hr >
     </section>
 </div>
-    
+<script type="text/javascript">
+let xhttp;
+if (window.XMLHttpRequest) {
+    xhttp = new XMLHttpRequest();
+}
+xhttp.open("GET","doctors.xml",false);
+xhttp.send();
+var cookieUser = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+let doc = xhttp.responseXML;
+let name = doc.getElementsByTagName(cookieUser)[0].innerHTML;
+
+let welcome = document.getElementsByClassName('title_fio-doctor')[0];
+welcome.innerHTML = `${name}!`
+</script>
 </body>
 </html>
